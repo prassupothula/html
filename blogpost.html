@@ -1,0 +1,98 @@
+<article>
+    <h1 class="article-title"><title>The Cloud Is Just Someone Else's Computer</title></h1>
+      <blockquote>When we started Discoursein 2013, our server requirements were high:</blockquote>
+    <ul>
+      <li>1GB RAM</li>
+      <li>modern, fast dual core CPU</li>
+      <li>speedy solid state drive with 20+ GB</li>
+      </ul>
+      
+    <p>
+      The cloud got cheaper, and faster. Not really a surprise, since the
+      price of hardware trends to zero over time.
+      But it's still the cloud, and that means it isn't exactly cheap. It is, after all, someone else's computer that
+      you pay for the privilege of renting.</p>
+      <img class=article-image1 src="https://i.imgur.com/EnqQkr9.png"/>
+    
+      <blockquote>But wait …<strong> what if you could put your own computer "in the cloud"?</strong></blockquote>
+    
+      <p>Wouldn't that be the best of both worlds? Reliable connectivity, plus a nice low monthly price for extremely fast
+        hardware? If this sounds crazy, it shouldn't – Mac users have been doing thisfor years now.</p>
+      <img src="https://i.imgur.com/3Ta0lNJ.png">
+      <img src="https://i.imgur.com/VMjl04M.jpg">
+      <img src="https://i.imgur.com/39ufeVa.jpg">
+    
+      <p>I originally wrote aboutthe scooter computers we added to our Discourse infrastructure in 2016,
+      plus my own colocation experiment that ran concurrently.
+    
+      the last three years of both experiments, I've concluded that these little boxes are plenty reliable
+      , with one role specific caveat that I'll explain in the comments. I remain an unabashed fan of mini-PC
+        colocation. I like it so much I put together a new 2019 iteration:</p>
+    <table>
+      <th>2017 - $670</th>
+      <th>2019 - $820</th>
+      <tr>
+      <td>i7 - 7500u</td>
+      <td>i7 - 8750h</td>
+      </tr>
+    <tr>
+      <td>2.7-3.5 Ghz, 2c / 4t</td>
+      <td>2.2-4.1 Ghz, 6c / 12t</td>
+      </tr>
+      <tr>
+        <td>16GB DDR3 RAM</td>
+        <td>32GB DDR4 RAM</td>
+      </tr>
+      <tr>
+        <td>500GB SATA SSD</td>
+        <td>500GB NVMe SSD</td>
+      </tr>
+      </table>
+     <img src="https://i.imgur.com/67hQDJA.jpg">
+    <p>
+      I vetted each box via myrecommended burn in and stability testing and they all passed with flying
+      colors, though I did have to RMA one set of bodgy RAM sticks in the process. The benchmarks tell the story, as
+      compared to the average Digital Ocean droplet:</p>
+    
+     <h5>Pre-core performance</h5> 
+      <code>sysbench cpu --cpu-max-prime=20000 run</code>
+    <table>
+      <th>DO Droplet</th>
+      <th>2,988</th>
+      <tr>
+        <td>2017 Mini-PC</td>
+        <td>4,800</td>
+      </tr>
+      <tr>
+        <td>2019 Mini-PC</td>
+        <td>5,671</td>
+      </tr>
+      </table>
+      <h5>Multi-core performance </h5>
+      <code>sysbench cpu --cpu-max-prime=40000 --num-threads=8 run</code>
+      <table>
+        <th>DO Droplet</th>
+        <th>2,200</th>
+        <tr>
+          <td>2017 Mini-PC</td>
+          <td>5,588</td>
+        </tr>
+        <tr>
+          <td>2019 Mini-PC</td>
+          <td>14,604</td>
+        </tr>
+      </table>
+    
+      If you'd also like to embark upon this project, you can get
+      the same Partaker B18 box I did for $490 from Amazon, or $460 direct from China via AliExpress.
+      Add memory and drive to taste, build it up, then check outendoffice.com
+      who I can enthusiastically recommend for colocation, or the colocation provider of your choice.
+    </article>
+    <hr>
+    <footer>
+      <h4>Written by Jeff Atwood</h4>
+    
+      Indoor enthusiast. Co-founder of Stack Overflow and Discourse. Disclaimer: I have no idea what I'm talking
+      about. Find me here:<a href="http://twitter.com/codinghorror"></a>
+    </footer>
+    
